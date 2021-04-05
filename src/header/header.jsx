@@ -23,7 +23,6 @@ function Disclaimer(){
 		</div>
 	)
 }
-
 function header() {
 	return (
 		<div>

@@ -17,9 +17,9 @@ function footer(){
 									© 2021 SRCS IPU, All rights reserved.
 								</p>
 							</div>
-							<div className="go_top">
+							{/* <div className="go_top">
 								<span className="icon-arrow-up"></span>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>

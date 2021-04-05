@@ -1,0 +1,29 @@
+.navbar-brand{
+	margin-left:10%;
+  }
+  nav{
+	box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+	
+  }
+  .navbar-nav{
+	  margin-left:20%;
+	  font-weight: bold;
+  }
+  .navbar-collapse{
+	  font-weight: bold;
+	  color: #4550E6;
+  }
+  .nav-link{
+	  font-weight: bold;
+	  color: #4550E6 !important;
+	cursor: pointer;
+  }
+  .nav-link:hover{
+	  font-weight: bold;
+	  color: #34bfa3!important;
+  }
+  .disclaimer{
+	  font-weight: bold;
+	  text-align: left;
+	  color:#5D6778 !important;
+	}

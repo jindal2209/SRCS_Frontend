@@ -1,9 +1,17 @@
 import './home.css'
 import {useState} from 'react' ;
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
-function Home(){
+function Home(props){
+	const location = useLocation();
+	var refresh;
+	if(location.state){
+		refresh = location.state.refresh
+	}
+	if(refresh===true){
+		window.location.reload(true)
+	}
 	var [rollno,setRollno] = useState("");
 	var [showLoader,setLoader] = useState(false);
 	var history = useHistory();
@@ -35,8 +43,8 @@ function Home(){
 	}
 	
 	function handleSubmit(event){
+		event.preventDefault();
 		if(rollno.length!==11){
-			event.preventDefault();
 			setLoader(false);
 			setErr({
 				show:  true,

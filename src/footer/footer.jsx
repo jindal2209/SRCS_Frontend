@@ -10,7 +10,7 @@ function footer(){
 						<div className="col-md-12">
 							<p className="grey-text text-lighten-4">
 								This portal is an initiative of <a href={clgurl} target='_blank' rel="noreferrer">BPIT INDIA</a> and is currently under Development &amp; 
-								Testing. <br /> REPORT ANY DISCREPANCIES IN RESULTS OR GIVE FEEDBACK/SUGGESTIONS AT <a href="">resultapp@bpitindia.com</a>
+								Testing. <br /> REPORT ANY DISCREPANCIES IN RESULTS OR GIVE FEEDBACK/SUGGESTIONS AT <a href="mailto:resultapp@bpitindia.com">resultapp@bpitindia.com</a>
 							</p>
 							<div className="copyright-text">
 								<p>

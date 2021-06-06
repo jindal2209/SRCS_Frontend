@@ -1,20 +1,21 @@
 import './footer.css'
 
-function footer(){
+function footer() {
 	const clgurl = "http://www.bpitindia.com"
-	return(
+	var year = new Date().getFullYear()
+	return (
 		<footer>
 			<div className="mini-footer">
 				<div className="container">
 					<div className="row">
 						<div className="col-md-12">
 							<p className="grey-text text-lighten-4">
-								This portal is an initiative of <a href={clgurl} target='_blank' rel="noreferrer">BPIT INDIA</a> and is currently under Development &amp; 
+								This portal is an initiative of <a href={clgurl} target='_blank' rel="noreferrer">BPIT INDIA</a> and is currently under Development &amp;
 								Testing. <br /> REPORT ANY DISCREPANCIES IN RESULTS OR GIVE FEEDBACK/SUGGESTIONS AT <a href="mailto:resultapp@bpitindia.com">resultapp@bpitindia.com</a>
 							</p>
 							<div className="copyright-text">
 								<p>
-									© 2021 SRCS IPU, All rights reserved.
+									© {year} SRCS IPU, All rights reserved.
 								</p>
 							</div>
 							{/* <div className="go_top">

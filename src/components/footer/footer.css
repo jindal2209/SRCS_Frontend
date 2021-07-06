@@ -1,0 +1,39 @@
+footer {
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	margin-top: 100px;
+	font-weight: bold;
+}
+
+.mini-footer {
+	background: #192027;
+	text-align: center;
+	padding: 32px 0;
+	bottom: 0;
+}
+
+.mini-footer p {
+	margin: 0;
+	line-height: 26px;
+	font-size: 15px;
+	color: #999
+}
+
+.mini-footer p a {
+	color: #5867dd
+}
+
+.mini-footer p a:hover {
+	color: #34bfa3
+}
+
+@media only screen and (max-width: 500px) {
+	.mini-footer p{
+		font-size: 13px;
+		line-height: 20px;
+	}
+	.mini-footer {
+		padding: 25px 0;
+	}
+}

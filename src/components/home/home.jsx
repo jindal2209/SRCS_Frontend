@@ -1,39 +1,21 @@
 import './home.css'
 import { useState } from 'react';
 import axios from 'axios';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Home() {
-	const location = useLocation();
-	var refresh;
-	if (location.state) {
-		refresh = location.state.refresh
-	}
-	if (refresh === true) {
-		window.location.reload(true)
-	}
 	var [rollno, setRollno] = useState("");
 	var [showLoader, setLoader] = useState(false);
 	var history = useHistory();
-	var [showError, setErr] = useState({
-		show: false,
-		message: ''
-	});
+	var [showError, setErr] = useState({ show: false, message: '' });
 
 	function ErrorMsg() {
 		return (
 			<div className="alert alert-warning alert-dismissible fade show" role="alert">
 				{showError.message}
-				<button
-					type="button"
-					className="close"
-					data-dismiss="alert"
-					aria-label="Close"
+				<button type="button" className="close" data-dismiss="alert" aria-label="Close"
 					onClick={() => {
-						setErr({
-							show: false,
-							message: ""
-						})
+						setErr({ show: false, message: "" })
 					}}
 				>
 					<span aria-hidden="true">&times;</span>
@@ -46,18 +28,11 @@ function Home() {
 		event.preventDefault();
 		if (rollno.length !== 11) {
 			setLoader(false);
-			setErr({
-				show: true,
-				message: "Enter Valid 11 digit IPU Roll Number"
-			})
+			setErr({ show: true, message: "Enter Valid 11 digit IPU Roll Number" })
 		}
 		else {
 			setLoader(true);
-			setErr({
-				show: false,
-				message: ""
-			})
-
+			setErr({ show: false, message: "" })
 			axios.get('getrollnumdata/?enrollment_number=' + parseInt(rollno))
 				.then(response => {
 					history.push({
@@ -67,10 +42,7 @@ function Home() {
 				})
 				.catch((error) => {
 					setLoader(false);
-					setErr({
-						show: true,
-						message: error.response.data['error']
-					})
+					setErr({ show: true, message: error.response.data['error'] })
 				})
 		}
 	}
@@ -122,7 +94,7 @@ function Home() {
 					<p> CS, IT, EEE, ECE, MAE results</p>
 					<br />
 					<p className="text1">Check your all semester results along with College wise and University wise ranks, total marks and backlogs.Know where
-					you stand in the rankings and also check out other student's results.
+						you stand in the rankings and also check out other student's results.
 					</p>
 				</div>
 			</div>

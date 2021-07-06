@@ -3,7 +3,7 @@ import './studentresult.css';
 import { useLocation } from 'react-router-dom'
 import { useCallback, useState } from 'react';
 
-function StudentResult() {
+function StudentResult(pr) {
 	const location = useLocation();
 	const props = location.state;
 	var [ot, setOt] = useState(0);
@@ -21,6 +21,8 @@ function StudentResult() {
 	const fetchTotalBacklogs = useCallback((val) => {
 		setTbacklogs((pt) => pt + val);
 	}, [])
+
+	console.log(pr.enrollment_number)
 
 	return (
 		<div className="container">

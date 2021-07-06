@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { PaginationTable } from './PaginationTable'
 
 function UniversityWiseResult() {
 	var [branch, setBranch] = useState('');
@@ -8,8 +7,6 @@ function UniversityWiseResult() {
 	var [semester, setSemester] = useState('');
 	var showForm = true;
 	var showLoader = false;
-	// var [showLoader, setLoader] = useState(false);
-	// var [showForm, setForm] = useState(true);
 	var [studentresult, setStudentResult] = useState({
 		show: false,
 		data: <div></div>
@@ -19,8 +16,6 @@ function UniversityWiseResult() {
 		message: ''
 	});
 	var [batch_list, setBatchList] = useState([]);
-	// var [branch_list, setBranchList] = useState([]);
-	// var [semester_list, setSemesterList] = useState([]);
 
 	useEffect(() => {
 		function getBatchList() {
@@ -84,44 +79,51 @@ function UniversityWiseResult() {
 	function CollegeTable(props) {
 		return (
 			<div>
+				<br />
+				<br />
 				<h4 className="center">Branch : {props.results.branch}</h4>
 				<h4 className="center">Batch : {props.results.batch} &nbsp;</h4>
-				<table className='table table-bordered table-striped table-sm table-responsive-lg'>
-					<thead className="thead-dark">
-						<tr>
-							<th>Rank</th>
-							<th>Student Name</th>
-							<th>Enrollment number</th>
-							<th>Aggregate</th>
-							<th>Institute</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							props.results.clg_data.map((student, idx) => {
-								return (
-									<tr key={idx}>
-										<td>{student.rank}</td>
-										<td>{student.student_name}</td>
-										<td>{student.enrollment_number}</td>
-										<td>{student.aggregate}</td>
-										<td>{student.college_name}</td>
+				{
+					props.results.clg_data.length ?
+						<>
+							<table className='table table-bordered table-striped table-sm table-responsive-lg'>
+								<thead className="thead-dark">
+									<tr>
+										<th>Rank</th>
+										<th>Student Name</th>
+										<th>Enrollment number</th>
+										<th>Aggregate</th>
+										<th>Institute</th>
 									</tr>
-								)
-							})
-						}
-					</tbody>
-				</table>
-				<div>
-					<span>
-						Page{' '}
-						<strong>
-							{/* {pageIndex + 1} of {pageOptions.length} */}
-						</strong>{'  '}
-					</span>
-					<button className="btn btn-success btn-sm" onClick={(e) => handleSubmit(e, props.previous)} disabled={!props.previous ? true : false} >Previous</button>
-					<button className="btn btn-success btn-sm" onClick={(e) => handleSubmit(e, props.next)} disabled={!props.next ? true : false} >Next</button>
-				</div>
+								</thead>
+								<tbody>
+									{
+										props.results.clg_data.map((student, idx) => {
+											return (
+												<tr key={idx}>
+													<td>{student.rank}</td>
+													<td>{student.student_name}</td>
+													<td>{student.enrollment_number}</td>
+													<td>{student.aggregate}</td>
+													<td>{student.college_name}</td>
+												</tr>
+											)
+										})
+									}
+								</tbody>
+							</table>
+							<div>
+								<span>
+									Page{' '}
+									<strong>
+										{/* {pageIndex + 1} of {pageOptions.length} */}
+									</strong>{'  '}
+								</span>
+								<button className="btn btn-success btn-sm" onClick={(e) => handleSubmit(e, props.previous)} disabled={!props.previous ? true : false} >Previous</button>
+								<button className="btn btn-success btn-sm" onClick={(e) => handleSubmit(e, props.next)} disabled={!props.next ? true : false} >Next</button>
+							</div>
+						</>
+						: <h4>No data found</h4>}
 			</div >
 		)
 	}
